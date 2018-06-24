@@ -1,0 +1,52 @@
+<!--pages/create/create.wxml-->
+<view class="pages-create">
+  <view class="pages-create__banner"></view>
+  <form class="pages-create__form">
+    <view class="form-item__group">
+      <view class="form-item">
+        <input class="form-item__title"
+               maxlength="25" placeholder="请输入活动标题" />
+        <i class="iconfont icon-yuyin"></i>
+      </view>
+      <view class="form-item">
+        <view class="form-item__label">
+          <i class="iconfont icon-shijian"></i>
+          开始时间
+        </view>
+        <view class="form-item__right">
+          <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <view class="date-picker">
+              {{date}}
+            </view>
+          </picker>
+          <picker
+                  wx:if="{{!isAllDay}}"
+                  mode="time"
+                  value="{{time}}"
+                  start="09:01"
+                  end="21:01"
+                  bindchange="bindTimeChange">
+            <view class="time-picker">{{time}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item__label">
+          <i></i>
+          全天活动
+        </view>
+        <view class="form-item__right">
+          <switch bindchange="timeSwitchChange"/>
+        </view>
+      </view>
+    </view>
+    <view class="form-item__group">
+      <view class="form-item" bindtap="navigateToAddress">
+        <view class="form-item__label">
+          <i class="iconfont icon-dizhi"></i>
+          活动地点
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

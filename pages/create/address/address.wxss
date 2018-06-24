@@ -1,0 +1,20 @@
+/* pages/create/address/address.wxss */
+.pages-create__address {
+
+}
+
+.form-item__group {
+  background: #ffffff;
+  margin-bottom: 15rpx;
+  padding: 0 40rpx;
+}
+
+.form-item {
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-item:not(:last-child) {
+  border-bottom: 1px solid #f8f8f8;
+}

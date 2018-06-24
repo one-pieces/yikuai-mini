@@ -1,0 +1,60 @@
+/* pages/create/create.wxss */
+
+.pages-create {
+
+}
+.pages-create__banner {
+  height: 300rpx;
+  background: red;
+}
+.form-item__group {
+  background: #ffffff;
+  margin-bottom: 15rpx;
+  padding: 0 40rpx;
+}
+
+.form-item {
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-item:not(:last-child) {
+  border-bottom: 1px solid #f8f8f8;
+}
+.form-item .form-item__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180rpx;
+}
+.form-item .form-item__right {
+  display: flex;
+  color: #a5a5a5;
+}
+.form-item__right .time-picker {
+  margin-left: 50rpx;
+  padding-left: 50rpx;
+  border-left: 1px solid #f0f0f0;
+
+}
+.form-item .form-item__title {
+  width: 80%;
+  font-size: 33rpx;
+}
+
+.form-item .iconfont {
+  margin-top: 5rpx;
+}
+
+.icon-yuyin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  color: #ffffff;
+  width: 65rpx;
+  height: 65rpx;
+  border-radius: 50%;
+  font-size: 35rpx;
+}

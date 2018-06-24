@@ -1,0 +1,13 @@
+<!--pages/create/address/address.wxml-->
+<view class="pages-create__address">
+  <form class="pages-create__form">
+    <view class="form-item__group">
+      <view class="form-item">
+        <input class="form-item__title"
+               bindinput="search"
+               value="{{searchKey}}"
+               maxlength="25" placeholder="日程地点（选填）" />
+      </view>
+    </view>
+  </form>
+</view>

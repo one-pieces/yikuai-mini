@@ -1,20 +1,21 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+    "pages/create/create",
+    "pages/logs/logs",
+    "pages/create/address/address"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f8f8f8",
     "navigationBarTitleText": "约伴助手",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "tabBar": {
     "backgroundColor": "#fafafa",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/create/create",
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
         "text": "有约"
@@ -22,7 +23,7 @@
       {
         "pagePath": "pages/logs/logs",
         "iconPath": "static/images/ic_menu_me_nor.png",
-        "selectedIconPath": "static/images/ic_menu_me_pressed.png",        
+        "selectedIconPath": "static/images/ic_menu_me_pressed.png",
         "text": "我"
       }
     ]
