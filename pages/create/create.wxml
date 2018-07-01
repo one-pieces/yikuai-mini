@@ -11,7 +11,7 @@
       <view class="form-item">
         <view class="form-item__label">
           <i class="iconfont icon-shijian"></i>
-          开始时间
+          <text>开始时间</text>
         </view>
         <view class="form-item__right">
           <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
@@ -32,8 +32,8 @@
       </view>
       <view class="form-item">
         <view class="form-item__label">
-          <i></i>
-          全天活动
+          <i class="iconfont" style="width: 38rpx;"></i>
+          <text>全天活动</text>
         </view>
         <view class="form-item__right">
           <switch bindchange="timeSwitchChange"/>
@@ -44,7 +44,7 @@
       <view class="form-item" bindtap="navigateToAddress">
         <view class="form-item__label">
           <i class="iconfont icon-dizhi"></i>
-          活动地点
+          <text>{{address || '活动地点'}}</text>
         </view>
       </view>
     </view>

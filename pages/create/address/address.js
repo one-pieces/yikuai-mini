@@ -1,5 +1,7 @@
 // pages/create/address/address.js
 import { QQMapConfig } from '../../../config/index';
+// import debounce from '../../../utils/debounce/index';
+const debounce = require('../../../lib/lodash.debounce/index');
 const QQMapWX = require('../../../lib/qqmap-wx-jssdk1.0/qqmap-wx-jssdk.min');
 let qqmapsdk;
 
@@ -9,27 +11,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isBusy: false,
-    searchKey: ''
+    searchKey: '',
+    addressList: []
   },
 
-  search({ detail }) {
+  search: debounce(function(e) {
     this.setData({
-      searchKey: detail.value
+      searchKey: e.detail.value
     });
-    // 调用接口
-    console.log('mmm', this.data.searchKey);
+    if (this.data.searchKey) {
+      this.getMapSuggestion(this.data.searchKey);
+      return;
+    }
+    this.setData({
+      addressList: []
+    });
+  }, 1000),
+
+  getMapSuggestion(keyword) {
     qqmapsdk.getSuggestion({
-      keyword: this.data.searchKey,
-      success: function (res) {
-        console.log(res);
+      keyword,
+      success: (res) => {
+        if (!res.data.length) {
+          wx.showToast({
+            title: '找不到相近的地址~',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+        this.setData({
+          addressList: res.data
+        });
       },
       fail: function (res) {
         console.log(res);
       },
       complete: function (res) {
-        console.log(res);
+        // console.log(res);
       }
+    })
+  },
+
+  chooseAddress({ currentTarget }) {
+    const pages = getCurrentPages();
+    const prevPage = pages[pages.length - 2];
+    prevPage.setData({
+      address: currentTarget.dataset.title
+    });
+    wx.navigateBack({
+      url: `../create`
     });
   },
 
@@ -41,6 +71,12 @@ Page({
     qqmapsdk = new QQMapWX({
       key: QQMapConfig.key
     });
+    this.setData({
+      searchKey: options.searchKey
+    });
+    if (this.data.searchKey) {
+      this.getMapSuggestion(this.data.searchKey);
+    }
   },
 
   /**

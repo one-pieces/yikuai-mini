@@ -6,7 +6,7 @@ Page({
    */
   data: {
     date: '2018-06-10',
-    time: '09:01',
+    time: '09:00',
     isAllDay: false,
     address: ''
   },
@@ -27,8 +27,8 @@ Page({
   },
   navigateToAddress() {
     wx.navigateTo({
-      url: 'address/address?title=address'
-    })
+      url: `address/address?searchKey=${this.data.address}`
+    });
   },
 
   /**

@@ -11,10 +11,12 @@
 
 .form-item {
   padding: 20rpx 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .form-item:not(:last-child) {
-  border-bottom: 1px solid #f8f8f8;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.form-item .address {
+  color: #9f9fa5;
+  font-size: 12px;
 }

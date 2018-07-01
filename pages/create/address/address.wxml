@@ -8,6 +8,21 @@
                value="{{searchKey}}"
                maxlength="25" placeholder="日程地点（选填）" />
       </view>
+      <view class="form-item"
+            wx:if="{{searchKey}}"
+            data-title="{{searchKey}}"
+            bindtap="chooseAddress">
+        <view class="title">{{searchKey}}</view>
+        <view class="address">自定义地点</view>
+      </view>
+      <view class="form-item"
+            wx:for-items="{{addressList}}"
+            wx:key="{{item.id}}"
+            data-title="{{item.title}}"
+            bindtap="chooseAddress">
+        <view class="title">{{item.title}}</view>
+        <view class="address">{{item.address}}</view>
+      </view>
     </view>
   </form>
 </view>
