@@ -45,6 +45,10 @@
   margin-right: 35rpx;
 }
 
+.icon-null {
+  width: 38rpx;
+}
+
 .icon-yuyin {
   display: flex;
   justify-content: center;
@@ -55,4 +59,37 @@
   height: 65rpx;
   border-radius: 50%;
   font-size: 35rpx;
+}
+
+.navigator-arrow {
+  padding-right: 26rpx;
+  position: relative;
+}
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-color: #888888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  right: 28rpx;
+}
+
+.navigator-arrow.down-arrow:after {
+  border-width: 0 2rpx 2rpx 0;
+  margin-top: -14rpx;
+}
+
+.navigator-arrow.up-arrow:after {
+  border-width: 2rpx 0 0 2rpx;
+  margin-top: -4rpx;
+}
+
+.create-btn {
+  margin-top: 80rpx;
+  width: 80%;
+  border-radius: 50rpx;
 }

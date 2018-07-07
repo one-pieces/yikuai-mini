@@ -14,25 +14,30 @@
           <text>开始时间</text>
         </view>
         <view class="form-item__right">
-          <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <picker
+            mode="date"
+            value="{{startDate}}"
+            start="2015-09-01"
+            end="2021-09-01"
+            bindchange="bindStartDateChange">
             <view class="date-picker">
-              {{date}}
+              {{startDate}}
             </view>
           </picker>
           <picker
                   wx:if="{{!isAllDay}}"
                   mode="time"
-                  value="{{time}}"
+                  value="{{startTime}}"
                   start="09:01"
                   end="21:01"
-                  bindchange="bindTimeChange">
-            <view class="time-picker">{{time}}</view>
+                  bindchange="bindStartTimeChange">
+            <view class="time-picker">{{startTime}}</view>
           </picker>
         </view>
       </view>
       <view class="form-item">
         <view class="form-item__label">
-          <i class="iconfont" style="width: 38rpx;"></i>
+          <i class="iconfont icon-null"></i>
           <text>全天活动</text>
         </view>
         <view class="form-item__right">
@@ -48,5 +53,67 @@
         </view>
       </view>
     </view>
+    <view class="form-item__group">
+      <view class="form-item" bindtap="showMoreOption">
+        <view class="form-item__label">
+          <i class="iconfont icon-null"></i>
+          <text>更多选项</text>
+        </view>
+        <view class="form-item__right">
+          <view class="navigator-arrow {{isMoreOptionShown ? 'up-arrow' : 'down-arrow'}}"></view>
+        </view>
+      </view>
+      <block wx:if="{{isMoreOptionShown}}">
+        <view class="form-item">
+          <view class="form-item__label">
+            <i class="iconfont icon-null"></i>
+            <text>结束时间</text>
+          </view>
+          <view class="form-item__right">
+            <picker
+              mode="date"
+              value="{{endDate}}"
+              start="2015-09-01"
+              end="2021-09-01"
+              bindchange="bindEndDateChange">
+              <view class="date-picker">
+                {{endDate}}
+              </view>
+            </picker>
+            <picker
+              wx:if="{{!isAllDay}}"
+              mode="time"
+              value="{{endTime}}"
+              start="09:01"
+              end="21:01"
+              bindchange="bindEndTimeChange">
+              <view class="time-picker">{{endTime}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="form-item__label">
+            <i class="iconfont icon-null"></i>
+            <text>用户报名填写信息</text>
+          </view>
+          <view class="form-item__right">
+            <switch bindchange="userInfoSwitchChange" checked="{{isNeedUserInfo}}"/>
+          </view>
+        </view>
+        <view class="form-item" wx:if="{{isNeedUserInfo}}">
+          <view class="form-item__label">
+            <i class="iconfont icon-null"></i>
+            <label class="checkbox" style="margin-right: 60rpx;">
+              <checkbox checked="{{isNeedUsername}}"/>真实姓名
+            </label>
+            <label class="checkbox">
+              <checkbox checked="{{isNeedPhone}}" />手机号
+            </label>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <button class="create-btn" type="primary" bindtap="primary"> 保存 </button>
   </form>
 </view>

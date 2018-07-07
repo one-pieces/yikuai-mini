@@ -1,33 +1,78 @@
 // pages/create/create.js
+import dayjs from '../../lib/dayjs/dayjs.min';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: '2018-06-10',
-    time: '09:00',
+    startDate: dayjs().format('YYYY-MM-DD'),
+    startTime: '09:00',
+    endDate: '',
+    endTime: '',
     isAllDay: false,
-    address: ''
+    address: '',
+    isMoreOptionShown: false,
+    isNeedUserInfo: false,
+    isNeedUsername: false,
+    isNeedPhone: false
   },
-  bindDateChange({ detail }) {
+  bindStartDateChange({ detail }) {
     this.setData({
-      date: detail.value
+      startDate: detail.value
     });
   },
-  bindTimeChange({ detail }) {
+  bindStartTimeChange({ detail }) {
     this.setData({
-      time: detail.value
+      startTime: detail.value
+    });
+  },
+  bindEndDateChange({ detail }) {
+    this.setData({
+      endDate: detail.value
+    });
+  },
+  bindEndTimeChange({ detail }) {
+    this.setData({
+      endTime: detail.value
     });
   },
   timeSwitchChange({ detail }) {
     this.setData({
-      isAllDay: detail.value
+      isAllDay: detail.value,
+      endDate: this.data.startDate
     });
   },
   navigateToAddress() {
     wx.navigateTo({
       url: `address/address?searchKey=${this.data.address}`
+    });
+  },
+  showMoreOption() {
+    const isMoreOptionShown = !this.data.isMoreOptionShown;
+    const endDate = isMoreOptionShown ? this.data.startDate : '';
+    const endTime = isMoreOptionShown ? this.data.startTime : '';
+    const isNeedUserInfo = false;
+    const isNeedUsername = isNeedUserInfo;
+    const isNeedPhone = isNeedUserInfo;
+    this.setData({
+      isMoreOptionShown,
+      endDate,
+      endTime,
+      isNeedUserInfo,
+      isNeedUsername,
+      isNeedPhone
+    });
+  },
+  userInfoSwitchChange() {
+    const isNeedUserInfo = !this.data.isNeedUserInfo;
+    const isNeedUsername = isNeedUserInfo;
+    const isNeedPhone = isNeedUserInfo;
+    this.setData({
+      isNeedUserInfo,
+      isNeedUsername,
+      isNeedPhone
     });
   },
 

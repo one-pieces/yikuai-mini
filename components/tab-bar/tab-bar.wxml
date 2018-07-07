@@ -1,0 +1,15 @@
+<!--components/tab-bar/tab-bar.wxml-->
+<view>
+  <view class="op-tab-bar"
+        style="color: {{tabBar.color}}; background: {{tabBar.backgroundColor}}; {{tabBar.position==='top' ? 'top: 0; border-bottom: 1px solid ' : 'bottom: 0; border-top: 1px solid '}}{{tabBar.borderStyle}};">
+    <block wx:for="{{tabBar.list}}" wx:key="pagePath">
+      <navigator class="tab-item"
+                 style="{{item.active ? 'color: ' + (item.selectedColor || tabBar.selectedColor) : ''}}"
+                 url="{{item.pagePath}}"
+                 open-type="{{item.pageTum}}">
+        <image src="{{item.active ? item.selectedIconPath : item.iconPath}}"></image>
+        <text>{{item.text}}</text>
+      </navigator>
+    </block>
+  </view>
+</view>

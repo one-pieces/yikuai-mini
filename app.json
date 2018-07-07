@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/create/create",
-    "pages/logs/logs",
-    "pages/create/address/address"
+    "pages/create/navigator/navigator",
+    "pages/create/address/address",
+    "pages/me/me"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,13 +17,19 @@
     "backgroundColor": "#fafafa",
     "list": [
       {
-        "pagePath": "pages/create/create",
+        "pagePath": "pages/index/index",
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
-        "text": "有约"
+        "text": "主页"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/create/navigator/navigator",
+        "iconPath": "static/images/ic_menu_choice_nor.png",
+        "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+        "text": "新建"
+      },
+      {
+        "pagePath": "pages/me/me",
         "iconPath": "static/images/ic_menu_me_nor.png",
         "selectedIconPath": "static/images/ic_menu_me_pressed.png",
         "text": "我"
